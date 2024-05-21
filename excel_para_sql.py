@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine, exc, text
 
 def abrir_planilha(loja_id, arquivo):
-    df = pd.read_excel('7087.xlsx', skiprows=10, usecols=[1,4,5,6,7])
+    df = pd.read_excel(arquivo, skiprows=10, usecols=[1,4,5,6,7])
     df = df[:-1] # Excluindo a ultima linha que contém o total acumulado
     df.columns = ['Data', 'Boletos', 'Itens', 'Venda_Liquida', 'Desconto']
     df.insert(0, 'Loja', loja_id)
